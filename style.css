@@ -1,6 +1,9 @@
 /*************************************/
 /* ************ SETTING ************ */
 /*************************************/
+/* ? hader: z-index: 5; */
+/* ? modal: z-index: 3; */
+
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
@@ -28,6 +31,7 @@
     width: 100vw;
     padding: 2vw 12vw;
     position: fixed;
+    z-index: 5;
 }
 .nav-books{
     width: 100%;
@@ -90,4 +94,18 @@
 .section-home{
     background-image: url('assets/img/bg2.jpeg');
     background-size: cover;
+}
+.social-media {
+    display: flex;
+    justify-content: space-between;
+    width: 27%;
+    padding-left: 12%;
+    position: relative;
+    height: 85%;
+    align-items: end;
+}
+.icon-social img {
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
 }
