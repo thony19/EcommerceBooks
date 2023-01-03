@@ -19,7 +19,7 @@
     --color-text: #000;
     --font-size-sm: 1.5vw;
     --font-size-md: 2.5vw;
-    --font-size-lg: 3.5vw;
+    --font-size-lg: 5.5vw;
     --font-family: 'Abhaya Libre', serif;
     --font-family-ct: 'Roboto', sans-serif;
 }
@@ -81,18 +81,18 @@
     color: var(--color-primary);
 }
 .ico-cart img{
-    width: 4vw;
-    height: 4vw;
+    width: 2.5vw;
+    height: 2.5vw;
     cursor: pointer;
 }
-/*********************************/
-/* ************ HOME************ */
-/*********************************/
+/**********************************/
+/* ************ HOME ************ */
+/**********************************/
 .Section{
     height: 100vh;
 }
 .section-home{
-    background-image: url('assets/img/bg2.jpeg');
+    background-image: url('assets/icon/bg.svg');
     background-size: cover;
 }
 .social-media {
@@ -108,4 +108,36 @@
     width: 3vw;
     height: 3vw;
     cursor: pointer;
+}
+
+/***********************************/
+/* ************ About ************ */
+/***********************************/
+.container-title {
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-title::before {
+    content: "";
+    position: absolute;
+    background: var(--color-primary);
+    width: 40%;
+    height: 0.3%;
+    left: 0;
+}
+.container-title::after {
+    content: "";
+    position: absolute;
+    background: var(--color-primary);
+    width: 40%;
+    right: 0;
+    height: 0.3%;
+}
+.header-title{
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-family);
 }
