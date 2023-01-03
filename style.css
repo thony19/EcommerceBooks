@@ -1,0 +1,93 @@
+/*************************************/
+/* ************ SETTING ************ */
+/*************************************/
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-primary: #BA7D68;
+    --color-secondary: #E7C6B9;
+    --color-white: #fff;
+    --color-text: #000;
+    --font-size-sm: 1.5vw;
+    --font-size-md: 2.5vw;
+    --font-size-lg: 3.5vw;
+    --font-family: 'Abhaya Libre', serif;
+    --font-family-ct: 'Roboto', sans-serif;
+}
+
+/************************************/
+/* ************ HEADER ************ */
+/************************************/
+.header-books{
+    width: 100vw;
+    padding: 2vw 12vw;
+    position: fixed;
+}
+.nav-books{
+    width: 100%;
+    height: 6vw;
+    display: flex;
+}
+.nav-books-left{
+    width: 70%;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px 0 0 10px;
+}
+.container-logo{
+    width: 30%;
+    padding-left: 5%;
+}
+.logo-books img {
+    width: 4.5vw;
+    height: 4.5vw;
+    cursor: pointer;
+}
+.container-ctn{
+    width: 65%;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-books-right{
+    width: 30%;
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0 10px 10px 0;
+}
+.books-btn{
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-ct);
+    font-style: normal;
+    cursor: pointer;
+}
+.btn-primary{
+    color: var(--color-white);
+}
+.btn-secondary{
+    color: var(--color-primary);
+}
+.ico-cart img{
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+}
+/*********************************/
+/* ************ HOME************ */
+/*********************************/
+.Section{
+    height: 100vh;
+}
+.section-home{
+    background-image: url('assets/img/bg2.jpeg');
+    background-size: cover;
+}
