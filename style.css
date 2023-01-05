@@ -1,143 +1,170 @@
-/*************************************/
-/* ************ SETTING ************ */
-/*************************************/
-/* ? hader: z-index: 5; */
-/* ? modal: z-index: 3; */
-
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Roboto&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 :root{
-    --color-primary: #BA7D68;
-    --color-secondary: #E7C6B9;
-    --color-white: #fff;
-    --color-text: #000;
-    --font-size-sm: 1.5vw;
-    --font-size-md: 2.5vw;
-    --font-size-lg: 5.5vw;
-    --font-family: 'Abhaya Libre', serif;
-    --font-family-ct: 'Roboto', sans-serif;
+    --color-primary:#BA7D68;
+    --color-secundary:#E7C6B9;
+    --color-white:#fff;
+    --color-black:#000;
+    --font-Abhaya-bold:'Abhaya Libre';
+    --font-roboto:'Roboto';
+    --font-size-tittle:6vw;
+    --font-size-price:1.5vw;
+    
 }
-
-/************************************/
-/* ************ HEADER ************ */
-/************************************/
-.header-books{
+/********++section header*********/
+.Section{
+    background: var(--color-white);
+    height: 100vh;
+    width: 100vw;
+}
+#header-books {
     width: 100vw;
     padding: 2vw 12vw;
     position: fixed;
-    z-index: 5;
+    z-index: 15;
 }
-.nav-books{
+#container-header {
+    display: flex;
     width: 100%;
-    height: 6vw;
-    display: flex;
-}
-.nav-books-left{
-    width: 70%;
-    background: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 10px 0 0 10px;
-}
-.container-logo{
-    width: 30%;
-    padding-left: 5%;
-}
-.logo-books img {
-    width: 4.5vw;
-    height: 4.5vw;
-    cursor: pointer;
-}
-.container-ctn{
-    width: 65%;
-    display: flex;
-    justify-content: space-around;
-}
-.nav-books-right{
-    width: 30%;
-    background: var(--color-white);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 0 10px 10px 0;
-}
-.books-btn{
-    font-size: var(--font-size-sm);
-    font-family: var(--font-family-ct);
-    font-style: normal;
-    cursor: pointer;
-}
-.btn-primary{
-    color: var(--color-white);
-}
-.btn-secondary{
-    color: var(--color-primary);
-}
-.ico-cart img{
-    width: 2.5vw;
-    height: 2.5vw;
-    cursor: pointer;
-}
-/**********************************/
-/* ************ HOME ************ */
-/**********************************/
-.Section{
-    height: 100vh;
-}
-.section-home{
-    background-image: url('assets/icon/bg.svg');
-    background-size: cover;
-}
-.social-media {
-    display: flex;
-    justify-content: space-between;
-    width: 27%;
-    padding-left: 12%;
-    position: relative;
-    height: 85%;
-    align-items: end;
-}
-.icon-social img {
-    width: 3vw;
-    height: 3vw;
-    cursor: pointer;
+    height: 12vh;
 }
 
-/***********************************/
-/* ************ About ************ */
-/***********************************/
-.container-title {
-    width: 100%;
-    margin-top: 10%;
+.header-left {
+    background: var(--color-primary);
+    width: 60%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: space-around;
+}
+.header-right {
+    background: var(--color-white);
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#logo-book svg {
+    width: 4vw;
+    height: 4vw;
+}
+#carrito svg {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+.header-color{
+    color: var(--color-white);
+}
+.section-header{
+    font-family: var(--font-roboto);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font-roboto);
+}
+.header-white{
+    color: var(--color-primary);
+}
+/*************************************/
+/***********Section Home**************/
+.section-home{
+    background: url("img/background-img.png");
+}
+.social-media {
+
+    display: flex;
+    height: 90vh;
+    position: relative;
+    margin: 0 14%;
+}
+.icon-social {
+    margin: 0 0.3%;
+}
+.icon-social svg {
+    width: 3.5vw;
+    height: 3.5vw;
+}
+/*********Section About*****/
+
+.containerAbout {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container-title::before {
+.align-items-center.d-flex {
+    height: 45vh;
+}
+.containerAbout::before {
+    background: var(--color-primary);
     content: "";
     position: absolute;
-    background: var(--color-primary);
-    width: 40%;
+    width: 35%;
     height: 0.3%;
     left: 0;
 }
-.container-title::after {
+.containerAbout::after {
+    background: var(--color-primary);
     content: "";
     position: absolute;
-    background: var(--color-primary);
-    width: 40%;
-    right: 0;
+    width: 33%;
     height: 0.3%;
+    right: 0;
 }
-.header-title{
+.tittle-about{
+    font-weight: 800;
+    font-family: var(--font-Abhaya-bold);
     color: var(--color-primary);
-    font-size: var(--font-size-lg);
-    font-family: var(--font-family);
+    font-size: var(--font-size-tittle);
+
+}
+.text-about {
+    padding: 0 23vw;
+    font-family: var(--font-roboto);
+    font-size: var(--font-size-price);
+    text-align: justify;
+}
+.text-about::after{
+    content: "";
+    position: absolute;
+    width: 42vw;
+    height: 35vw;
+    background: url('img/watercolor-world-book-day-illustration_52683-59257 1 1.png');
+    right: 2vw;
+    transform: translateY(-11vh);
+}
+
+/*********gallery******/
+.container-gallery{
+    padding: 0 20vw;
+}
+.img1:hover{
+    filter: drop-shadow(0px 4px 4px rgba(186, 125, 104, 0.5));
+    opacity: 0.6;
+}
+.img1:hover::after{
+    content: "ahajhmdkajhd";
+    font-size: 20vw;
+    color: aqua;
+    position: absolute;
+}
+.img2:hover{
+    filter: drop-shadow(0px 4px 4px rgba(186, 125, 104, 0.5));
+    opacity: 0.6;
+}
+.img3:hover{
+    filter: drop-shadow(0px 4px 4px rgba(186, 125, 104, 0.5));
+    opacity: 0.6;
+}
+.img4:hover{
+    filter: drop-shadow(0px 4px 4px rgba(186, 125, 104, 0.5));
+    opacity: 0.6;
+}
+.img5:hover{
+    filter: drop-shadow(0px 4px 4px rgba(186, 125, 104, 0.5));
+    opacity: 0.6;
 }
