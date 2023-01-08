@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  id="html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/carousel.css">
-    <link rel="stylesheet" href="./css/style.css">
     <title>Ecommerce Books</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header class="header-books" id="header-books">
         <nav class="nav-books" id="nav-books">
-            <div class="nav-books-left">
+            <div class="nav-books-left" id="nav-books-left">
                 <div class="container-logo">
                     <div class="logo-books" id="logo-books">
                         <img src="assets/icon/Logo.svg" alt="" onclick="scrollNavigation('section-home')">
@@ -23,14 +23,35 @@
                 </div>
                 <div class="container-ctn">
                     <div class="books-btn btn-Primary" onclick="scrollNavigation('section-about')">About Us</div>
-                    <div class="books-btn btn-Primary" onclick="scrollNavigation('section-category')">Categories</div>
+                    <div class="books-btn btn-Primary" id="btn-category" onclick="scrollNavigation('section-category')">
+                        <p>Categories</p>
+                        <div class="subMenuGrap" id="subMenuGrap">
+                            <div class="subMenu">
+                                <div class="menuItem">Ciencia Ficción</div>
+                                <div class="menuItem">Fantasía</div>
+                                <div class="menuItem">Histórico</div>
+                                <div class="menuItem">Terror</div>
+                                <div class="menuItem">Romance</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="books-btn btn-Primary" onclick="scrollNavigation('section-review')">Reviews</div>
                     <div class="books-btn btn-Primary" onclick="scrollNavigation('section-contact')">Contact Us</div>
                 </div>
             </div>
-            <div class="nav-books-right">
-                <div class="books-btn btn-Secondary" id="Login" onclick="on_modal('login-section', 'register-section')">Login</div>
-                <div class="books-btn btn-Secondary" id="Register" onclick="on_modal('register-section', 'login-section')">Register</div>
-                <div class="ico-cart" id="icon-cart">
+            <div class="nav-books-right" id="nav-books-right">
+                <div class="logo-user">
+                    <div class="icon-user" id="icon-user">
+                        <img src="assets/icon/user.svg" alt="">
+                        <div class="subMenuGrapUser" id="subMenuGrapUser">
+                            <div class="subMenu">
+                                <div class="btn-Secondary" id="Login" onclick="on_modal('login-section', 'register-section')">Login</div>
+                                <div class="btn-Secondary" id="Register" onclick="on_modal('register-section', 'login-section')">Register</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ico-cart hover" id="icon-cart" onclick="modal()">
                     <img src="assets/icon/cart.svg" alt="">
                 </div>
             </div>
@@ -39,18 +60,28 @@
     <section class="Section section-home" id="section-home">
         <div class="social-media">
             <div class="icon-social">
-                <img src="assets/icon/facebook.svg" alt="">
+                <img class="hover" src="assets/icon/facebook.svg" alt="">
             </div>
             <div class="icon-social">
-                <img src="assets/icon/ig.svg" alt="">
+                <img class="hover" src="assets/icon/ig.svg" alt="">
             </div>
             <div class="icon-social">
-                <img src="assets/icon/shel.svg" alt="">
+                <img class="hover" src="assets/icon/shel.svg" alt="">
             </div>
             <div class="icon-social">
-                <img src="assets/icon/google.svg" alt="">
+                <img class="hover" src="assets/icon/google.svg" alt="">
             </div>
         </div>
+        <div class="container-home-title">
+            <h2 class="home-title">Un Buen Libro No Termina, Se Esconde Dentro De Nosotros.</h2>
+        </div>
+        <div class="lotti-circle">
+            <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 40vw; height: 40vw;" loop autoplay></lottie-player>
+        </div>
+        <div class="lotti-circle" style="bottom: 40%;">
+            <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 20vw; height: 20vw;" loop autoplay></lottie-player>
+        </div>
+        <div class="abook"><span class="hover">@book</span></div>
     </section>
 
     <section class="Section" id="section-about">
@@ -74,6 +105,52 @@
             <h2 class="header-title">Category</h2>
         </div>
 
+        <div class="container-gallery">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 ">
+                    <div class="img1 hover_img">
+                        <img
+                            src="./assets/icon/ScienceFiction.svg"
+                            class="w-100 shadow-1-strong mb-4"
+                            alt="Wintry Mountain Landscape"
+                        />
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="img2 hover_img">
+                        <img
+                            src="./assets/icon/fantacy.svg"
+                            class="w-100 shadow-1-strong mb-4"
+                            alt="Mountains in the Clouds"
+                        />
+                    </div>
+                    <div class="img3 hover_img">
+                        <img
+                            src="./assets/icon/historico.svg"
+                            class="w-100 shadow-1-strong mb-4"
+                            alt="Boat on Calm Water"
+                        />
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="img4 hover_img">
+                        <img
+                            src="./assets/icon/terror.svg"
+                            class="w-100 shadow-1-strong mb-4"
+                            alt="Waves at Sea"
+                        />
+                    </div>
+                    <div class="img5 hover_img">
+                        <img
+                            src="./assets/icon/love.svg"
+                            class="w-100 shadow-1-strong mb-4 img5"
+                            alt="Yosemite National Park"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container cta-100 ">
             <div class="container">
                 <div class="row blog">
@@ -91,10 +168,9 @@
                                 <li data-target="#blogCarousel" data-slide-to="8"></li>
                             </ol>
 
-                            <!-- Carousel items -->
                             <div class="carousel-inner" id="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row">
+                                <!-- <div class="carousel-item active"> -->
+                                    <!-- <div class="row">
                                         <div class="col-md-4" >
                                             <div class="">
                                                 <div class="item-box-blog-image">
@@ -112,9 +188,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="mt">
-                                                        <a href="#" tabindex="0" class=" white read">
-                                                            <img src="assets/icon/cart.svg" alt="cart">
-                                                        </a>
+                                                        <div tabindex="0" class="white read">
+                                                            <img class="shop-item-button" src="assets/icon/cart.svg" alt="cart">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,66 +198,54 @@
                                         <div class="col-md-4" >
                                             <div class="">
                                                 <div class="item-box-blog-image">
-                                                    <!--Image-->
                                                     <figure> <img alt="" src="./assets/img/img2.png"> </figure>
                                                 </div>
                                                 <div class="item-box-blog-body">
-                                                    <!--Heading-->
                                                     <div>
                                                         <div class="item-box-blog-heading">
                                                             <a class="text-tittle" href="#" tabindex="0">
                                                                 <h5>Técnico</h5>
                                                             </a>
                                                         </div>
-                                                        <!--Data-->
                                                         <div class="item-box-blog-data" style="padding: px 15px;">
                                                             <p class="text-price"><i class="fa fa-user-o"></i>$28.00</p>
                                                         </div>
-                                                    <!--Text-->
                                                     </div>
-                                                    <div class="mt"> <a href="#" tabindex="0" class=" white read">
-                                                        <img src="assets/icon/cart.svg" alt="cart"></a> 
+                                                    <div class="mt"> <div tabindex="0" class="white read">
+                                                        <img class="shop-item-button" src="assets/icon/cart.svg" alt="cart"></div>
                                                     </div>
-                                                    <!--Read More Button-->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4" >
                                             <div class="">
                                                 <div class="item-box-blog-image">
-                                                    <!--Image-->
                                                     <figure> <img alt="" src="./assets/img/img3.png"> </figure>
                                                 </div>
                                                 <div class="item-box-blog-body">
-                                                <!--Heading-->
                                                     <div>
                                                         <div class="item-box-blog-heading">
                                                             <a class="text-tittle"  href="#" tabindex="0">
                                                                 <h5>Conducta</h5>
                                                             </a>
                                                         </div>
-                                                        <!--Data-->
                                                         <div class="item-box-blog-data" style="padding: px 15px;">
                                                             <p class="text-price">
                                                                 <i class="fa fa-user-o"></i> $28.00
                                                             </p>
                                                         </div>
                                                     </div>
-
-                                                    <!--Text-->
                                                     <div class="mt">
-                                                        <a href="#" tabindex="0" class=" white read">
-                                                            <img src="assets/icon/cart.svg" alt="">
-                                                        </a>
+                                                        <div tabindex="0" class=" white read">
+                                                            <img class="shop-item-button" src="assets/icon/cart.svg" alt="">
+                                                        </div>
                                                     </div>
-                                                    <!--Read More Button-->
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> -->
+                                <!-- </div> -->
                             </div>
-                            <!--.carousel-inner-->
                         </div>
                         <!--.Carousel-->
                     </div>
@@ -203,6 +267,65 @@
         <div class="container-title">
             <h2 class="header-title">Contact Us</h2>
         </div>
+        <div class="containerContact">
+            <div class="contact">
+                <div class="row ">
+                    <div class="card-body ">
+                        <div class = "container">
+                            <form id="contact-form" role="form">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="form_name" type="text" name="name" class="form-control formCont" placeholder="Name" required="required" data-error="Firstname is required.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="form_email" type="email" name="email" class="form-control formCont" placeholder="Email" required="required" data-error="Lastname is required.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="form_tel" type="tel" name="tel" class="form-control formCont" placeholder="Phone Number" required="required" data-error="Valid  is required."> 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <select id="form_need" name="need" class="form-control formCont" required="required" data-error="Please specify your need.">
+                                                    <option value="" selected disabled>--Select Category--</option>
+                                                    <option >Category 1</option>
+                                                    <option >Category 2</option>
+                                                    <option >Category 3</option>
+                                                    <option >Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea id="form_message" name="message" class="form-control formCont" placeholder="Description" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 containerSend" >
+                                            <input type="submit" class="buttonSend" value="Send" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.8 -->
+                <!-- /.row-->
+                </div>
+            </div>
+            <div class="imgContact">
+                <img src="./assets/img/imgContact.png" alt="#">
+            </div>
+        </div>
     </section>
 
     <!-- SECTION MODAL -->
@@ -216,14 +339,14 @@
                 <h2 class="modal-tittle">create Account</h2>
             </div>
             <form action="" class="form-container">
-                <input type="text" placeholder="Your username" class="form-input form-control">
-                <input type="email" placeholder="Your email" class="form-input form-control">
-                <input type="password" placeholder="Password" class="form-input form-control">
-                <input type="password" placeholder="Confirm password" class="form-input form-control">
+                <input type="text" placeholder="Your username" class="form-control form-input" required="required" data-error="Firstname is required.">
+                <input type="email" placeholder="Your email" class="form-control form-input" required="required" data-error="Email is required.">
+                <input type="password" placeholder="Password" class="form-control form-input" required="required" data-error="Password is required.">
+                <input type="password" placeholder="Confirm password" class="form-control form-input" required="required" data-error="Password is required.">
             </form>
 
             <div class="container-send">
-                <button class="btn btn-send" onclick="close_modal()">Register</button>
+                <button class="btn-send" onclick="close_modal()">Register</button>
             </div>
         </div>
     </section>
@@ -233,29 +356,77 @@
             <img src="assets/icon/close.svg" alt="">
         </div>
         <div class="logo-login">
-            <img src="assets/icon/login.svg" alt="icon Logo">
+            <img src="assets/icon/user.svg" alt="icon Logo">
         </div>
         <div class="ctn-modal">
             <div class="ctn-heading">
                 <h2 class="modal-tittle">Login</h2>
             </div>
             <form action="" class="form-container">
-                <input type="text" placeholder="Your username" class="form-input form-control">
-                <input type="password" placeholder="Password" class="form-input form-control">
+                <input type="text" placeholder="Your username" class="form-control form-input" required="required" data-error="Firstname is required.">
+                <input type="password" placeholder="Password" class="form-control form-input" required="required" data-error="Password is required.">
             </form>
-    
+
             <div class="container-send">
-                <button class="btn btn-send" onclick="close_modal()">Sing in</button>
+                <button type="submit" class="btn-send" onclick="close_modal()">Sing in</button>
             </div>
         </div>
     </section>
 
-    <footer>
+    <section class="checkout-section" id="checkout-section">
+        <div class="container-title">
+            <h2 class="header-title">Checkout</h2>
+        </div>
+        <div class="cart-items">
 
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title" id="cart-total-title">Total</strong>
+            <span class="cart-total-price"></span>
+        </div>
+        <div class="container-send">
+            <button class="btn btn-pay" onclick="close_modal()" type="button">Pay</button>
+        </div>
+    </section>
+    <footer class="footer-books" id="footer-books">
+        <div class="container-books">
+            <div class="row-one-book">
+                <div class="one-book-col">
+                    <div class="col-svg">
+                        <img src="assets/icon/tel.svg" alt="tel">
+                    </div>
+                    <div class="col-tel">
+                        <a class="col-inf" href="tel:+(204) 9442-1614">(+504) 9429-1614</a>
+                    </div>
+                </div>
+                <div class="one-book-col">
+                    <div class="col-svg">
+                        <img src="assets/icon/email.svg" alt="Email">
+                    </div>
+                    <div class="col-email">
+                        <a class="col-inf" href="mailto:books@hotmail.com"> books@hotmail.com </a>
+                    </div>
+                </div>
+                <div class="one-book-col">
+                    <div class="col-svg">
+                        <img src="assets/icon/location.svg" alt="Location">
+                    </div>
+                    <div class="col-adress">
+                        <p class="col-inf"> 246 WHITE STREET </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row-two-book">
+                <h3 id="copyright" class="title_copyright">© COPYRIGHT 20223  |  Powered By  All Rights Reserved</h3>
+            </div>
+        </div>
     </footer>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <script src="script/main.js"></script>
     <script type="module" src="./script/script.js"></script>
 </body>
