@@ -18,7 +18,7 @@
             <div class="nav-books-left" id="nav-books-left">
                 <div class="container-logo">
                     <div class="logo-books" id="logo-books">
-                        <img src="assets/icon/Logo.svg" alt="" onclick="scrollNavigation('section-home')">
+                        <img class="hover" src="assets/icon/Logo.svg" alt="" onclick="scrollNavigation('section-home')">
                     </div>
                 </div>
                 <div class="container-ctn">
@@ -75,10 +75,10 @@
         <div class="container-home-title">
             <h2 class="home-title">Un Buen Libro No Termina, Se Esconde Dentro De Nosotros.</h2>
         </div>
-        <div class="lotti-circle">
+        <div class="lottie-circle">
             <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 40vw; height: 40vw;" loop autoplay></lottie-player>
         </div>
-        <div class="lotti-circle" style="bottom: 40%;">
+        <div class="lottie-circle" style="bottom: 40%;">
             <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 20vw; height: 20vw;" loop autoplay></lottie-player>
         </div>
         <div class="abook"><span class="hover">@book</span></div>
@@ -89,14 +89,22 @@
             <h2 class="header-title">About</h2>
         </div>
         <div class="about-container">
-            <p class="ctn-p">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            <p class="ctn-p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur.</p>
+                cillum dolore eu fugiat nulla pariatur.
+            </p>
         </div>
         <div class="ctn-img">
             <div class="about-img">
                 <img src="assets/img/about.png" alt="">
             </div>
+        </div>
+        <div class="lottie-about-lg">
+            <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 40vw; height: 40vw;" loop autoplay></lottie-player>
+        </div>
+        <div class="lottie-about-sm">
+            <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 20vw; height: 20vw;" loop autoplay></lottie-player>
         </div>
     </section>
 
@@ -254,12 +262,101 @@
         </div>
     </section>
 
+    <section class="leaveYour" id="leaveYour">
+        <div class="containerButtonC" id="containerButtonC">
+            <div class="buttonC" id="buttonC" onclick="clouseReviews()">
+                <img  id="button_close_reviews" src="assets/icon/close.svg" alt="">
+            </div>
+        </div>
+        <div class="containerTittleLeaveY">
+            <h2 class="textleaveYour" id="textleaveYour">
+                Leave Your Feedback
+            </h2>
+        </div>
+        <div class="row ">
+            <div class="col-lg-7 mx-auto">
+                <div class=" mx-auto p-4 ">
+                    <div class="card-body ">
+                        <div class = "container">
+                            <form id="contact-form" role="form" >
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="form_name" type="text" name="name" class="form-control formCont" placeholder="Name" required="required" data-error="Firstname is required.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id="form_email" type="email" name="email" class="form-control formCont" placeholder="Email" required="required" data-error="Email is required.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea id="form_message" name="message" class="form-control formCont" placeholder="Description" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                                                </div>
+                                            </div>
+                                        <div class="col-md-12 containerSend" ></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="containerSend" onclick="show_confirmation()">
+                                <input onclick="mostrarValores()" type="submit" class="buttonSend" value="Send" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="Section" id="section-review">
         <div class="container-title">
             <h2 class="header-title">Reviews</h2>
         </div>
-        <div class="containerGallery" id="container-gallery">
-
+        <div class="containerReviews">
+            <div class="reviews">
+                <div class="testimonials" id="testimonials" >
+                    <div class="card">
+                        <div class="layer"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h2>
+                                    Someone Famous 2 <br>
+                                </h2>
+                            </div>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Quis nostrum deleniti nemo repellat.Id, aliquid necessitatibus perferendis
+                                praesentium itaque doloribus molestias quaerat a deleniti distinctio voluptate,
+                                reprehenderit omnis, dolorem ratione.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="layer"></div>
+                        <div class="content">
+                            <div class="details">
+                                <h2>
+                                    Someone Famous 3 <br>
+                                </h2>
+                            </div>
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis nostrum deleniti nemo repellat. 
+                                Id, aliquid necessitatibus perferendis praesentium itaque doloribus molestias quaerat a deleniti distinctio voluptate, 
+                                reprehenderit omnis, dolorem ratione.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ContainerLeaveYour">
+                <button class="btn-send leave" onclick="modalReviews()">
+                    Leave Your Feedback
+                </button>
+            </div>
         </div>
     </section>
 
@@ -289,7 +386,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input id="form_tel" type="tel" name="tel" class="form-control formCont" placeholder="Phone Number" required="required" data-error="Valid  is required."> 
+                                                <input id="form_tel" type="tel" name="tel" class="form-control formCont" placeholder="Phone Number" required="required" data-error="Valid  is required.">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -382,12 +479,14 @@
         </div>
         <div class="cart-total">
             <strong class="cart-total-title" id="cart-total-title">Total</strong>
-            <span class="cart-total-price"></span>
+            <span class="cart-total-price" id="cart-total-price"></span>
         </div>
-        <div class="container-send">
-            <button class="btn btn-pay" onclick="close_modal()" type="button">Pay</button>
+        <div class="send-checkout">
+            <button class="btn-send btn-pay" onclick="close_modal()" type="submit">Pay</button>
+            <button class="btn-send btn-pay" onclick="close_modal()" type="button">Close</button>
         </div>
     </section>
+
     <footer class="footer-books" id="footer-books">
         <div class="container-books">
             <div class="row-one-book">
