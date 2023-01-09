@@ -12,6 +12,7 @@
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    font-display: optional
 }
 :root{
     --color-primary: #BA7D68;
@@ -161,12 +162,12 @@ p {
 }
 .subMenuGrap {
     position: absolute;
-    width: 11vw;
+    width: 12vw;
     height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 41%;
+    left: 40%;
     border-radius: 10px;
     transition: height 0.2s;
     padding-top: 0;
@@ -214,7 +215,7 @@ p {
 .subMenu {
     font-family: var(--font-family-ct);
     position: relative;
-    background: rgba(231, 198, 185, 0.8);
+    background: rgba(231, 198, 185, 0.9);
     padding: 1%;
     width: 100%;
     height: 100%;
@@ -224,6 +225,10 @@ p {
     justify-content: center;
     border-radius: 10px;
     transition: color, transform 0.5s;
+}
+.menuItem{
+    overflow: hidden;
+    font-size: 1.2vw;
 }
 .menuItem:hover{
     color: var(--color-primary);

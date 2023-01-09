@@ -124,16 +124,18 @@ let carouselItem = document.querySelectorAll('.carousel-item');
 let addBtns      = document.querySelectorAll('.shop-item-button');
 let shopButton   = document.querySelectorAll('.shop-item-button');
 
-carouselItem[0].classList.add('active')
-addBtns = [...addBtns];
-shopButton = [...shopButton]
-shopButton.forEach( item => {
-	item.addEventListener( 'mouseover', img => {
-		item.src = "../assets/icon/cartWhite.svg"
-	} )
-	item.addEventListener( 'mouseout', img => {
-		item.src = "../assets/icon/cart.svg"
-	} )
+window.addEventListener( "load", ()=>{
+    carouselItem[0].classList.add('active')
+    addBtns = [...addBtns];
+    shopButton = [...shopButton]
+    shopButton.forEach( item => {
+        item.addEventListener( 'mouseover', img => {
+            item.src = "../assets/icon/cartWhite.svg"
+        } )
+        item.addEventListener( 'mouseout', img => {
+            item.src = "../assets/icon/cart.svg"
+        } )
+    } )
 } )
 
 addBtns.forEach(  btn => {
