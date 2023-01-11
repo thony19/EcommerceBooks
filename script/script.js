@@ -124,19 +124,46 @@ let carouselItem = document.querySelectorAll('.carousel-item');
 let addBtns      = document.querySelectorAll('.shop-item-button');
 let shopButton   = document.querySelectorAll('.shop-item-button');
 
-window.addEventListener( "load", ()=>{
-    carouselItem[0].classList.add('active')
-    addBtns = [...addBtns];
-    shopButton = [...shopButton]
+carouselItem = [...carouselItem];
+
+/* *|CURSOR_MARCADOR|* */
+// window.addEventListener( "load", ()=>{
+//     console.log(carouselItem, "que????")
+
+//     carouselItem[0].classList.add('active');
+
+//     addBtns = [...addBtns];
+//     shopButton = [...shopButton];
+
+//     shopButton.forEach( item => {
+//         item.addEventListener( 'mouseover', img => {
+//             item.src = "../assets/icon/cartWhite.svg"
+//         } )
+//         item.addEventListener( 'mouseout', img => {
+//             item.src = "../assets/icon/cart.svg"
+//         } )
+//     } )
+//     drowCategory()
+// } )
+
+carouselItem[0].classList.add('active');
+
+addBtns = [...addBtns];
+shopButton = [...shopButton];
+
+addEventListener('load', ()=>{
+    console.log('wyewyewjykl')
     shopButton.forEach( item => {
-        item.addEventListener( 'mouseover', img => {
+        item.addEventListener( 'mouseover', () => {
             item.src = "../assets/icon/cartWhite.svg"
         } )
-        item.addEventListener( 'mouseout', img => {
+        item.addEventListener( 'mouseout', () => {
             item.src = "../assets/icon/cart.svg"
         } )
     } )
-} )
+})
+
+
 
 addBtns.forEach(  btn => {
     btn.addEventListener( 'click', e =>{
@@ -185,7 +212,6 @@ function getTotal(){
     let supPrice = document.querySelectorAll('.cart-supPrice');
     let cont = 0
     supPrice = [...supPrice]
-    console.log(supPrice)
 
     // ? reduce -> agrupa los mismos elementos dentro de un arreglo
     let total = shoppingCartArray.reduce( (sum, item )=>{ // * item: representa cada uno de los objetos de cart
@@ -227,7 +253,6 @@ function updateNumberOfItems(){
 
     quantityValue.forEach( value =>{
         value.addEventListener( 'click', event =>{
-            console.log(value,event )
             // conseguir el titulo del libro
             let actualBooTitle = event.target.parentElement.parentElement.childNodes[1].innerText;
             let actualBookQuantity  = parseInt(event.target.value);
@@ -243,7 +268,6 @@ function updateNumberOfItems(){
         } );
     } );
 };
-
 
 function removeItems(){
     let removeBtn = document.querySelectorAll('.remove-item');
@@ -272,3 +296,77 @@ function removeItems(){
         } );
     } );
 };
+
+function drowCategory() {
+    let vitrine      = document.getElementById("ul-vitrine");
+    let pages        = document.getElementById('ul-pages');
+    let numVitrines  = 0;
+    let arrayVitrine = [];
+    let oneVitrine   = false;
+    let twoVitrine   = false;
+
+    vitrine.innerHTML = '';
+    pages.innerHTML   = '';
+
+
+    productsArray.forEach( item => {
+        if ( MaxPrice >= item.page_count && MinPrice <= item.page_count ) {
+            arrayVitrine.push(item);
+        }
+    } );
+
+    if ( ((arrayVitrine.length/3) - Math.floor(arrayVitrine.length/3)) > 0.5  ){
+        twoVitrine = true;
+    }
+    if ( ((arrayVitrine.length/3) - Math.floor(arrayVitrine.length/3)) < 0.5  ){
+        oneVitrine = true;
+    }
+
+    arrayVitrine.forEach( (item, index) => {
+        if ( (index+1)%3 === 0 ) {
+            vitrine.innerHTML +=
+                `
+                <div class="vitrine">
+                    <li class="vitrine-li"><img class="hover" src="${arrayVitrine[index-2].published_works[0].cover_art_url}" alt=""></li>
+                    <li class="vitrine-li"><img class="hover" src="${arrayVitrine[index-1].published_works[0].cover_art_url}" alt=""></li>
+                    <li class="vitrine-li"><img class="hover" src="${arrayVitrine[index].published_works[0].cover_art_url}" alt=""></li>
+                </div>
+                `
+            numVitrines += 1;
+        }
+        if ( twoVitrine === true && arrayVitrine.length === index + 2 ){
+            vitrine.innerHTML +=
+                `
+                <div class="vitrine">
+                    <li class="vitrine-li"><img class="hover" src="${arrayVitrine[index-1].published_works[0].cover_art_url}" alt=""></li>
+                    <li class="vitrine-li"><img class="hover" src="${arrayVitrine[index].published_works[0].cover_art_url}" alt=""></li>
+                </div>
+                `
+            numVitrines += 1;
+        }
+        if ( oneVitrine === true && arrayVitrine.length === index + 1 ){
+            vitrine.innerHTML +=
+                `
+                <div class="vitrine">
+                    <li class="vitrine-li"><img class="hover" src="${arrayVitrine[index].published_works[0].cover_art_url}" alt=""></li>
+                </div>
+                `
+            numVitrines += 1;
+        }
+    } );
+
+    for ( let i = 0; i < Math.ceil( numVitrines ); i ++  ){
+        pages.innerHTML +=
+        `
+            <li><label for="pages${i+1}">${i+1}</label></li>
+        `
+    }
+}
+
+let range = document.getElementById('range')
+
+range.addEventListener('click', ()=>{
+    drowCategory();
+})
+
+drowCategory()

@@ -12,7 +12,8 @@
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-display: optional
+    font-display: optional;
+    list-style: none;
 }
 :root{
     --color-primary: #BA7D68;
@@ -55,7 +56,6 @@
 p {
     margin: 0;
 }
-
 
 /************************************/
 /* ************ HEADER ************ */
@@ -418,7 +418,7 @@ p {
     z-index: 2;
 }
 .about-img img {
-    width: 27vw;
+    width: 35vw;
     height: 27vw;
 }
 
@@ -970,13 +970,6 @@ h3#copyright {
     transform: translateX(100vw);
     transition: transform 1s;
 }
-.active_modal{
-    transition: transform 0.5s;
-    transform: translateX(0);
-}
-.active_overflow{
-    overflow: hidden;
-}
 .ctn-modal{
     display: flex;
     flex-direction: column;
@@ -1132,13 +1125,292 @@ h3#copyright {
     justify-content: center;
     align-items: center;
 }
-/* .cart-item::before{
-    content: "";
-    background-color: rgba(231, 198, 185, 0.93);
+
+/*******************************************/
+/* ************ Modal-Vitrina ************ */
+/*******************************************/
+.showcase-section{
     position: absolute;
-    height: 8vw;
-    width: 5vw;
-    z-index: -1;
-    left: 11%;
-    bottom: 32%;
-} */
+    transform: translateX(100vw);
+    transition: all 0.5s;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+.rubber-ipt{
+	width: 240px;
+	height: auto;
+	background-color: #ddd;
+	position: relative;
+}
+.rubber-ipt-range{
+	width: 200px;
+	height: 2px;
+	background-color: var(--color-primary);
+	position: relative;
+}
+
+.rubber-ipt-min,
+.rubber-ipt-max{
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	position: absolute;
+
+	background-color: #fff;
+	border: 1px solid var(--color-white);
+}
+
+.rubber-ipt-min{
+	transform: translate(-9px, -9px);
+	left: 0;
+}
+.rubber-ipt-max{
+	transform: translate(191px, -9px);
+	left: 0;
+}
+.rubber-value-min{
+	top:10px;
+	transform: translateX(-10px);
+}
+.rubber-value-max{
+	top:10px;
+	right: 0;
+	transform: translateX(10px);
+}
+
+.textCategory{
+	font-family: var(--font-family-ct);
+	font-size: 2vw;
+	color: var(--color-text);
+	font-weight: 200;
+}
+.textUl{
+	font-family: var(--font-family-ct);
+	font-size: var(--font-size-sm);
+}
+.flex{
+	display: flex;
+}
+.jcsb{
+	justify-content: space-between;
+}
+.aifs{
+	align-items: flex-start;
+}
+.aic{
+	align-items: center;
+}
+.w-100{
+	width: 100%;
+}
+.m-m{
+	margin: 20px;
+}
+.mb-m{
+	margin-bottom: 20px;
+}
+.mt-s{
+	margin-top: 10px;
+}
+.showcase-section{
+    background: var(--color-secondary);
+    min-height: 100%;
+}
+/********+carousel*****/
+.box-paginacao {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.box-paginacao .box-vitrines {
+	width: 100%;
+	height: 45vh;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+.box-paginacao ul {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.box-paginacao ul li {
+	width: 250px;
+	height: 250px;
+	float: left;
+	margin: 0 0 10px 60px;
+}
+.box-paginacao .vitrine {
+	width: 100%;
+	height: 336px;
+	float: left;
+	margin-bottom: 33px;
+}
+.btn-paginacao {
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	bottom: 0;
+    padding-left: 11%;
+}
+.btn-paginacao ul {
+	width: auto;
+	height: auto;
+}
+.btn-paginacao ul li {
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin: 0 5px 0 0;
+	border: 0;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family);
+}
+.btn-paginacao ul li:last-child {
+	margin: 0;
+}
+.btn-paginacao ul li label {
+	width: 100%;
+	height: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	font-family: var(--font-family-ct), sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+	color: #2E2929;
+	cursor: pointer;
+	border-radius: 3px;
+	transition: background-color .25s ease-in-out;
+}
+.btn-paginacao ul li label:hover {
+	color: #FFF;
+}
+#pages1, #pages2, #pages3, #pages4,
+#pages5, #pages6, #pages7, #pages8, #pages9{
+    visibility: hidden;
+}
+#pages1:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(0px);
+}
+#pages1:checked ~ .box-vitrines label[for="pages1"] {
+	color: #FFF;
+}
+#pages2:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-369px);
+}
+#pages2:checked ~ .box-vitrines label[for="pages2"] {
+	color: #FFF;
+}
+#pages3:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-738px);
+}
+#pages3:checked ~ .box-vitrines label[for="pages3"] {
+	color: #FFF;
+}
+#pages4:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-1107px);
+}
+#pages4:checked ~ .box-vitrines label[for="pages4"] {
+	color: #FFF;
+}
+#pages5:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-1476px);
+}
+#pages5:checked ~ .box-vitrines label[for="pages5"] {
+	color: #FFF;
+}
+#pages6:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-1845px);
+}
+#pages6:checked ~ .box-vitrines label[for="pages6"] {
+	color: #FFF;
+}
+#pages7:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-2214px);
+}
+#pages7:checked ~ .box-vitrines label[for="pages7"] {
+	color: #FFF;
+}
+#pages8:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-2583px);
+}
+#pages8:checked ~ .box-vitrines label[for="pages8"] {
+	color: #FFF;
+}
+#pages9:checked ~ .box-vitrines > ul {
+	transition: transform .7s ease-in-out;
+	transform: translateY(-2952px);
+}
+#pages9:checked ~ .box-vitrines label[for="pages9"] {
+	color: #FFF;
+}
+
+.mais{
+	width: 147px;
+	height: auto;
+	position: absolute;
+	bottom: 7px;
+	right: 0;
+	text-align: center;
+}
+.mais a{
+	font-size: 1.2em;
+	color: #000;
+}
+.containerCarruseles{
+	width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.columnCategory{
+	width: 35%;
+	padding-left: 7vw;
+    padding-top: 20vh;
+}
+.containerTodo{
+	display:flex;
+}
+.vitrine-li img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.active_modal{
+    transition: transform 0.5s;
+    transform: translateX(0);
+}
+.active_overflow{
+    overflow: hidden;
+}

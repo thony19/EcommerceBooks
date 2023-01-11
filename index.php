@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en"  id="html">
 <head>
@@ -116,7 +120,7 @@
         <div class="container-gallery">
             <div class="row">
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 ">
-                    <div class="img1 hover_img">
+                    <div class="img1 hover_img" onclick="modal2()">
                         <img
                             src="./assets/icon/ScienceFiction.svg"
                             class="w-100 shadow-1-strong mb-4"
@@ -177,82 +181,7 @@
                             </ol>
 
                             <div class="carousel-inner" id="carousel-inner">
-                                <!-- <div class="carousel-item active"> -->
-                                    <!-- <div class="row">
-                                        <div class="col-md-4" >
-                                            <div class="">
-                                                <div class="item-box-blog-image">
-                                                    <figure> <img alt="" src="./assets/img/about.png"> </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <div>
-                                                        <div class="item-box-blog-heading">
-                                                            <a class="text-tittle" class="text-tittle" href="#" tabindex="0">
-                                                                <h5>Científico</h5>
-                                                            </a>
-                                                        </div>
-                                                        <div class="item-box-blog-data" style="padding: px 15px;">
-                                                            <p class="text-price"><i class="fa fa-user-o"></i> $28.00</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt">
-                                                        <div tabindex="0" class="white read">
-                                                            <img class="shop-item-button" src="assets/icon/cart.svg" alt="cart">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4" >
-                                            <div class="">
-                                                <div class="item-box-blog-image">
-                                                    <figure> <img alt="" src="./assets/img/img2.png"> </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <div>
-                                                        <div class="item-box-blog-heading">
-                                                            <a class="text-tittle" href="#" tabindex="0">
-                                                                <h5>Técnico</h5>
-                                                            </a>
-                                                        </div>
-                                                        <div class="item-box-blog-data" style="padding: px 15px;">
-                                                            <p class="text-price"><i class="fa fa-user-o"></i>$28.00</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt"> <div tabindex="0" class="white read">
-                                                        <img class="shop-item-button" src="assets/icon/cart.svg" alt="cart"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4" >
-                                            <div class="">
-                                                <div class="item-box-blog-image">
-                                                    <figure> <img alt="" src="./assets/img/img3.png"> </figure>
-                                                </div>
-                                                <div class="item-box-blog-body">
-                                                    <div>
-                                                        <div class="item-box-blog-heading">
-                                                            <a class="text-tittle"  href="#" tabindex="0">
-                                                                <h5>Conducta</h5>
-                                                            </a>
-                                                        </div>
-                                                        <div class="item-box-blog-data" style="padding: px 15px;">
-                                                            <p class="text-price">
-                                                                <i class="fa fa-user-o"></i> $28.00
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt">
-                                                        <div tabindex="0" class=" white read">
-                                                            <img class="shop-item-button" src="assets/icon/cart.svg" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                <!-- </div> -->
+                                
                             </div>
                         </div>
                         <!--.Carousel-->
@@ -278,7 +207,7 @@
                 <div class=" mx-auto p-4 ">
                     <div class="card-body ">
                         <div class = "container">
-                            <form id="contact-form" role="form" >
+                            <form id="contact-form" role="form" action="./review/reviews.php" method="POST">
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -301,10 +230,10 @@
                                         <div class="col-md-12 containerSend" ></div>
                                     </div>
                                 </div>
+                                <div class="containerSend" >
+                                    <input type="submit" class="buttonSend" value="Send" onclick="mostrarValores()">
+                                </div>
                             </form>
-                            <div class="containerSend" onclick="show_confirmation()">
-                                <input onclick="mostrarValores()" type="submit" class="buttonSend" value="Send" >
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -369,7 +298,7 @@
                 <div class="row ">
                     <div class="card-body ">
                         <div class = "container">
-                            <form id="contact-form" role="form">
+                            <form id="contact-form" role="form" action="./review/contacto.php" method="POST">
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -433,18 +362,18 @@
 
         <div class="ctn-modal">
             <div class="ctn-heading">
-                <h2 class="modal-tittle">create Account</h2>
+                <h2 class="modal-tittle">Create Account</h2>
             </div>
-            <form action="" class="form-container">
-                <input type="text" placeholder="Your username" class="form-control form-input" required="required" data-error="Firstname is required.">
-                <input type="email" placeholder="Your email" class="form-control form-input" required="required" data-error="Email is required.">
-                <input type="password" placeholder="Password" class="form-control form-input" required="required" data-error="Password is required.">
-                <input type="password" placeholder="Confirm password" class="form-control form-input" required="required" data-error="Password is required.">
+            <form action="./control_user/registro.php" class="form-container" method="POST">
+                <input type="text"     name="name"         placeholder="Your username"    class="form-control form-input" required="required" data-error="Firstname is required.">
+                <input type="email"    name="email"        placeholder="Your email"       class="form-control form-input" required="required" data-error="Email is required.">
+                <input type="password" name="password"     placeholder="Password"         class="form-control form-input" required="required" data-error="Password is required.">
+                <input type="password" name="confPassword" placeholder="Confirm password" class="form-control form-input" required="required" data-error="Password is required.">
+                <div class="container-send">
+                    <input type="submit" class="btn-send" value="Register" name="btn-send">
+                </div>
             </form>
 
-            <div class="container-send">
-                <button class="btn-send" onclick="close_modal()">Register</button>
-            </div>
         </div>
     </section>
 
@@ -459,14 +388,15 @@
             <div class="ctn-heading">
                 <h2 class="modal-tittle">Login</h2>
             </div>
-            <form action="" class="form-container">
-                <input type="text" placeholder="Your username" class="form-control form-input" required="required" data-error="Firstname is required.">
-                <input type="password" placeholder="Password" class="form-control form-input" required="required" data-error="Password is required.">
+            <form action="./control_user/login.php" class="form-container" method="POST">
+                <input type="text"     name="name"     placeholder="Your username" class="form-control form-input" required="required" data-error="Firstname is required.">
+                <input type="password" name="password" placeholder="Password"      class="form-control form-input" required="required" data-error="Password is required.">
+
+                <div class="container-send">
+                    <input type="submit" class="btn-send" onclick="close_modal()" value="Sing in">
+                </div>
             </form>
 
-            <div class="container-send">
-                <button type="submit" class="btn-send" onclick="close_modal()">Sing in</button>
-            </div>
         </div>
     </section>
 
@@ -484,6 +414,87 @@
         <div class="send-checkout">
             <button class="btn-send btn-pay" onclick="close_modal()" type="submit">Pay</button>
             <button class="btn-send btn-pay" onclick="close_modal()" type="button">Close</button>
+        </div>
+    </section>
+
+    <section class="showcase-section" id="showcase-section">
+        <div class="container-title">
+            <h2 class="header-title">Category</h2>
+        </div>
+        <div class="containerTodo">
+            <div class="columnCategory">
+                <div>
+                    <h3 class="textCategory">
+                        Categories
+                    </h3>
+                    <br/>
+                    <div>
+                        <ul class="textUl">Científico<br/> Científico <br/> Científico <br/>Científico </ul>
+                        <br/>
+                    </div>
+                </div>
+                <div class="flex aifs f-wrap w-100vw">
+                    <div class="m-m rubber-ipt-ctn">
+                        <div class="">
+                            <h5 >Rango De Precio</h5>
+                        </div>
+                        <div class=" flex aic" id="range">
+                            <div class="rubber-ipt mb-m mt-s">
+                                <div class="rubber-ipt-range"></div>
+                                <div class="rubber-ipt-min"></div>
+                                <div class="rubber-ipt-max"></div>
+                                <div class="w-100 flex jcsb mt-s">
+                                    <p class="rubber-value-min">$0</p>
+                                    <p class="rubber-value-max">$1000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br/>
+                    <h3 class="textCategory">
+                        Tipos de libros
+                    </h3>
+                    <br/>
+                    <div>
+                        <ul class="textUl">
+                            Empastado
+                            <br/>
+                            Laminado
+                            <br/>
+                            Laminado
+                            <br/>
+                            Laminado
+                            <br/>
+                        </ul>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <div class="containerCarruseles">
+                <div class="box-paginacao">
+                    <input type="radio" name="input-paginacao" id="pages1" checked>
+                    <input type="radio" name="input-paginacao" id="pages2">
+                    <input type="radio" name="input-paginacao" id="pages3">
+                    <input type="radio" name="input-paginacao" id="pages4">
+                    <input type="radio" name="input-paginacao" id="pages5">
+                    <input type="radio" name="input-paginacao" id="pages6">
+                    <input type="radio" name="input-paginacao" id="pages7">
+                    <input type="radio" name="input-paginacao" id="pages8">
+                    <input type="radio" name="input-paginacao" id="pages9">
+                    <div class="box-vitrines">
+                        <ul id="ul-vitrine">
+                            
+                        </ul>
+                        <div class="btn-paginacao">
+                            <ul class="ul-pages" id="ul-pages">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
