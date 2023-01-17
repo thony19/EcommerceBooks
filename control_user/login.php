@@ -12,10 +12,10 @@ if ( !empty($_POST['name']) && !empty($_POST['password']) ) {
         $_SESSION["email"]    = $datos->email;
         $_SESSION["password"] = $datos->password;
 
-        header("location: ../index.php");
+        header("location: ../index_Account.php");
     }
     else {
-        echo "<div>Acceso denegado</div>";
+        header("location: ../index_Login.php");
     }
 }
 

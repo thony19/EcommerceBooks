@@ -1,5 +1,13 @@
 <?php
 session_start();
+include "./base/database.php";
+
+// if ( empty($_SESSION['name']) ){
+//     header("location: index_Login.php");
+// }
+// else{
+//     header("location: index_Account.php");
+// }
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +17,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" name="Ecommerce books" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce Books</title>
-
+    <link rel="icon" href="./assets//icon/Logo.svg" type="image/x-icon">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -27,15 +35,15 @@ session_start();
                 </div>
                 <div class="container-ctn">
                     <div class="books-btn btn-Primary" onclick="scrollNavigation('section-about')">About Us</div>
-                    <div class="books-btn btn-Primary" id="btn-category" onclick="scrollNavigation('section-category')">
+                    <div class="books-btn btn-Primary" id="btn-category">
                         <p>Categories</p>
                         <div class="subMenuGrap" id="subMenuGrap">
                             <div class="subMenu">
-                                <div class="menuItem">Ciencia Ficción</div>
-                                <div class="menuItem">Fantasía</div>
-                                <div class="menuItem">Histórico</div>
-                                <div class="menuItem">Terror</div>
-                                <div class="menuItem">Romance</div>
+                                <div class="menuItem" onclick="on_modal('showcase-section')">Ciencia Ficción</div>
+                                <div class="menuItem" onclick="on_modal('showcase-section')">Fantasía</div>
+                                <div class="menuItem" onclick="on_modal('showcase-section')">Histórico</div>
+                                <div class="menuItem" onclick="on_modal('showcase-section')">Terror</div>
+                                <div class="menuItem" onclick="on_modal('showcase-section')">Romance</div>
                             </div>
                         </div>
                     </div>
@@ -49,13 +57,12 @@ session_start();
                         <img src="assets/icon/user.svg" alt="">
                         <div class="subMenuGrapUser" id="subMenuGrapUser">
                             <div class="subMenu">
-                                <div class="btn-Secondary" id="Login" onclick="on_modal('login-section', 'register-section')">Login</div>
-                                <div class="btn-Secondary" id="Register" onclick="on_modal('register-section', 'login-section')">Register</div>
+                                <a class="btn-Secondary" href="./control_user/close_Session.php">SIGN OFF</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ico-cart hover" id="icon-cart" onclick="modal()">
+                <div class="ico-cart hover" id="icon-cart" onclick="on_modal('checkout-section')">
                     <img src="assets/icon/cart.svg" alt="">
                 </div>
             </div>
@@ -120,7 +127,7 @@ session_start();
         <div class="container-gallery">
             <div class="row">
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 ">
-                    <div class="img1 hover_img" onclick="modal2()">
+                    <div class="img1 hover_img" onclick="on_modal('showcase-section')">
                         <img
                             src="./assets/icon/ScienceFiction.svg"
                             class="w-100 shadow-1-strong mb-4"
@@ -129,14 +136,14 @@ session_start();
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="img2 hover_img">
+                    <div class="img2 hover_img" onclick="on_modal('showcase-section')">
                         <img
                             src="./assets/icon/fantacy.svg"
                             class="w-100 shadow-1-strong mb-4"
                             alt="Mountains in the Clouds"
                         />
                     </div>
-                    <div class="img3 hover_img">
+                    <div class="img3 hover_img" onclick="on_modal('showcase-section')">
                         <img
                             src="./assets/icon/historico.svg"
                             class="w-100 shadow-1-strong mb-4"
@@ -145,14 +152,14 @@ session_start();
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="img4 hover_img">
+                    <div class="img4 hover_img" onclick="on_modal('showcase-section')">
                         <img
                             src="./assets/icon/terror.svg"
                             class="w-100 shadow-1-strong mb-4"
                             alt="Waves at Sea"
                         />
                     </div>
-                    <div class="img5 hover_img">
+                    <div class="img5 hover_img" onclick="on_modal('showcase-section')">
                         <img
                             src="./assets/icon/love.svg"
                             class="w-100 shadow-1-strong mb-4 img5"
@@ -178,20 +185,54 @@ session_start();
                                 <li data-target="#blogCarousel" data-slide-to="6"></li>
                                 <li data-target="#blogCarousel" data-slide-to="7"></li>
                                 <li data-target="#blogCarousel" data-slide-to="8"></li>
+                                <li data-target="#blogCarousel" data-slide-to="9"></li>
+                                <li data-target="#blogCarousel" data-slide-to="10"></li>
+                                <li data-target="#blogCarousel" data-slide-to="11"></li>
                             </ol>
 
                             <div class="carousel-inner" id="carousel-inner">
                                 
                             </div>
+                            
                         </div>
                         <!--.Carousel-->
                     </div>
                 </div>
             </div>
         </div>
+        <section class="info-showcase" id="info-showcase">
+            <div class="info-img">
+                <img id="info-img" src="" alt="img">
+                <div class="info-price" id="info-price"></div>
+            </div>
+            <div class="info-ctn">
+                <div class="container-info">
+                    <div class="info-tittle" id="info-tittle"></div>
+                    <div class="close-modal" onclick="close_pop()">
+                        <img src="assets/icon/close.svg" alt="">
+                    </div>
+                </div>
+                <div class="info-description" id="info-description"></div>
+                <div class="info-cart">
+                    <div class="add-cart">
+                        ADD CART
+                    </div>
+                    <div class="shop-button shop-item-button" id="">
+                        <img class="display_block" src="./assets/icon/cart.svg" alt="Icon Cart">
+                        <img class="display_none" src="./assets/icon/cartWhite.svg" alt="Icon Cart">
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
     <section class="leaveYour" id="leaveYour">
+        <div class="lottie-about-lg">
+            <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 40vw; height: 40vw;" loop autoplay></lottie-player>
+        </div>
+        <div class="lottie-about-sm">
+            <lottie-player src="./assets/icon/circle.json" background="transparent"  speed="1"  style="width: 20vw; height: 20vw;" loop autoplay></lottie-player>
+        </div>
         <div class="containerButtonC" id="containerButtonC">
             <div class="buttonC" id="buttonC" onclick="clouseReviews()">
                 <img  id="button_close_reviews" src="assets/icon/close.svg" alt="">
@@ -231,7 +272,7 @@ session_start();
                                     </div>
                                 </div>
                                 <div class="containerSend" >
-                                    <input type="submit" class="buttonSend" value="Send" onclick="mostrarValores()">
+                                    <input type="submit" class="buttonSend" value="Send">
                                 </div>
                             </form>
                         </div>
@@ -279,6 +320,10 @@ session_start();
                             </p>
                         </div>
                     </div>
+
+                    <?php
+                        include "./review/drowReview.php"
+                    ?>
                 </div>
             </div>
             <div class="ContainerLeaveYour">
@@ -349,7 +394,7 @@ session_start();
                 </div>
             </div>
             <div class="imgContact">
-                <img src="./assets/img/imgContact.png" alt="#">
+                <img  style="cursor: pointer;" src="./assets/img/imgContact.png" alt="#">
             </div>
         </div>
     </section>
@@ -412,8 +457,12 @@ session_start();
             <span class="cart-total-price" id="cart-total-price"></span>
         </div>
         <div class="send-checkout">
-            <button class="btn-send btn-pay" onclick="close_modal()" type="submit">Pay</button>
-            <button class="btn-send btn-pay" onclick="close_modal()" type="button">Close</button>
+            <?php $id_product ; ?>
+            <form action="./control_user/pay.php" method="POST">
+                <input type="submit" class="btn-send btn-pay" value="Pay">
+            </form>
+            <!-- <button class="btn-send btn-pay" onclick="close_modal()" type="submit">Pay</button> -->
+            <button class="btn-send btn-close" onclick="close_modal()" type="button">Close</button>
         </div>
     </section>
 
@@ -421,7 +470,7 @@ session_start();
         <div class="container-title">
             <h2 class="header-title">Category</h2>
         </div>
-        <div class="containerTodo">
+        <div class="containerShowcase">
             <div class="columnCategory">
                 <div>
                     <h3 class="textCategory">
@@ -429,14 +478,16 @@ session_start();
                     </h3>
                     <br/>
                     <div>
-                        <ul class="textUl">Científico<br/> Científico <br/> Científico <br/>Científico </ul>
+                        <ul class="textUl" id="Showcase-category">
+                            
+                        </ul>
                         <br/>
                     </div>
                 </div>
                 <div class="flex aifs f-wrap w-100vw">
                     <div class="m-m rubber-ipt-ctn">
-                        <div class="">
-                            <h5 >Rango De Precio</h5>
+                        <div >
+                            <h5 class="textCategory">Rango De Precio</h5>
                         </div>
                         <div class=" flex aic" id="range">
                             <div class="rubber-ipt mb-m mt-s">
@@ -463,9 +514,7 @@ session_start();
                             <br/>
                             Laminado
                             <br/>
-                            Laminado
-                            <br/>
-                            Laminado
+                            Virtual
                             <br/>
                         </ul>
                         <br/>

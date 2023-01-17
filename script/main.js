@@ -4,11 +4,14 @@ let listBooks          = [];
 let total              = 0;
 let MaxPrice           = 1000;
 let MinPrice           = 100;
+const sectionHome      = document.getElementById('section-home');
 const loginSection     = document.getElementById('login-section');
 const registerSection  = document.getElementById('register-section');
-const showcaseSection  = document.getElementById('showcase-section')
-const containerGallery = document.getElementById('container-gallery');
+const showcaseSection  = document.getElementById('showcase-section');
 const checkoutSection  = document.getElementById('checkout-section');
+const infoShowcase     = document.getElementById('info-showcase');
+const leaveYourFeedback = document.getElementById('leaveYour');
+const containerGallery = document.getElementById('container-gallery');
 const carrusel_inner   = document.getElementById('carousel-inner');
 const headerBooks      = document.getElementById('header-books');
 const navRight         = document.getElementById('nav-books-right');
@@ -19,8 +22,12 @@ const subMenuGrap      = document.getElementById('subMenuGrap');
 const iconUser         = document.getElementById('icon-user');
 const subMenuGrapUser  = document.getElementById('subMenuGrapUser');
 const btnCategory      = document.getElementById('btn-category');
-const leaveYourFeedback = document.getElementById('leaveYour');
 let iconCart           = document.getElementById('icon-cart');
+let infoImg            = document.getElementById('info-img');
+let infoTittle         = document.getElementById('info-tittle');
+let infoDescription    = document.getElementById('info-description');
+let infoPrice          = document.getElementById('info-price');
+let shopButton         = document.querySelector('.shop-button');
 var body               = document.body;
 var html               = document.getElementById('html')
 
@@ -61,70 +68,37 @@ function scrollNavigation( section ){
 }
 
 // ....:::: MODALS ::::....
-function on_modal( on_section, off_section ) {
+function on_modal( section ) {
 	scrollNavigation('section-home');
-	let On_section = document.getElementById( on_section );
-	let Off_section = document.getElementById( off_section );
-
-	On_section.classList.add('active_modal');
-	Off_section.classList.remove('active_modal');
-
+	let Section = document.getElementById( section );
+	close_modal();
+	Section.classList.add('active_modal');
 	body.classList.add('active_overflow');
 	html.classList.add('active_overflow');
-}
-function modal(){
-	scrollNavigation('section-home');
-	checkoutSection.classList.add('active_modal');
-	body.classList.add('active_overflow');
-	html.classList.add('active_overflow');
+	// sectionHome.classList.add('cursor');
+	// sectionHome.addEventListener('click', close_modal() );
 }
 function close_modal() {
 	loginSection.classList.remove('active_modal');
 	registerSection.classList.remove('active_modal');
-	checkoutSection.classList.remove('active_modal');
 	showcaseSection.classList.remove('active_modal');
+	checkoutSection.classList.remove('active_modal');
+	infoShowcase.classList.remove('active_modal');
+	sectionHome.classList.remove('active_modal');
 
 	body.classList.remove('active_overflow');
 	html.classList.remove('active_overflow');
 }
-function modal2(){
-	scrollNavigation('section-home');
-	showcaseSection.classList.add('active_modal');
-	body.classList.add('active_overflow');
-	html.classList.add('active_overflow');
+function close_pop() {
+	showcaseSection.classList.remove('color');
+	infoShowcase.classList.remove('active_modal');
 }
-
-
 // ....:::: REVIEW ::::....
-function mostrarValores(){
-	let contact_form = document.forms['contact-form'];
-	let texto        = ' ';
-	let parrafo      = ' ';
-	let form_name    = contact_form['form_name'];
-	let form_email   = contact_form['form_email'];
-	let form_message = contact_form['form_message'];
-	let testimonials = document.getElementById('testimonials');
-	testimonials.innerHTML+=`
-	<div class="card">
-	<div class="layer"></div>
-	<div class="content">
-		<div class="details">
-				<h2>
-					${form_name.value}<br>
-				</h2>
-			</div>
-		<p>${form_message.value}.</p>
-	</div>
-	</div>
-	`
-}
 function modalReviews(){
-	let leaveYour = document.getElementById('leaveYour');
-	leaveYour.classList.add('displayBlock');
+	leaveYourFeedback.classList.add('displayBlock');
 }
 function clouseReviews(){
-	let leaveYour = document.getElementById('leaveYour');
-	leaveYour.classList.remove('displayBlock');
+	leaveYourFeedback.classList.remove('displayBlock');
 }
 function show_confirmation(){
     var modal                     = document.getElementById('leaveYour');

@@ -9,7 +9,8 @@ if ( !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['passwor
     $sql      = "INSERT INTO registro (name, email, password)
     VALUES ('$name', '$email', '$password')";
 
-    header("location: ../index.php");
     $resul    = mysqli_query($conexion, $sql) or trigger_error("Query Faild SQL - ERROR: ".mysqli_error($conectar), E_USER_ERROR);
+
+    header("location: index_Account.php");
 }
 ?>
